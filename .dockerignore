@@ -1,0 +1,7 @@
+*venv*
+.env*
+.dockerignore
+docker-compose.override.yml
+docker-compose.yml
+Dockerfile
+README.md

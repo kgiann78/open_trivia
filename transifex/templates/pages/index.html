@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<main role="main">
+    <section class="jumbotron text-center">
+      <div class="container">
+        <h1 class="jumbotron-heading">Open Trivia - Transifex Resource Uploading Manager</h1>
+        <p class="lead text-muted">A (very) simple web tool for downloading questions from Open Trivia, selecting and uploading for translation via the Transifex API.</p>
+        <p>
+          <a href="{% url 'trivia_questions' %}" class="btn btn-primary my-2">Check some questions</a>
+          <a href="{% url 'trivia_categories' %}" class="btn btn-secondary my-2">Check the categories</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+{% endblock %}

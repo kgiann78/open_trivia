@@ -1,0 +1,21 @@
+version: '3.7'
+
+services:
+  trivia:
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: 'trivia'
+      POSTGRES_HOST: postgres
+      TRANSIFEX_TOKEN: $TRANSIFEX_TOKEN
+      TRANSIFEX_ORGANIZATION: $TRANSIFEX_ORGANIZATION
+      TRANSIFEX_PROJECT: $TRANSIFEX_PROJECT
+
+  postgres:
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_USER_FILE: ''
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_PASSWORD_FILE: ''
+      POSTGRES_DB: 'trivia'
+      POSTGRES_DB_FILE: ''

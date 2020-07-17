@@ -1,0 +1,28 @@
+{
+    "results": [
+    {
+        "category": "Entertainment: Music",
+        "type": "multiple",
+        "difficulty": "medium",
+        "question": "Which Beatle led the way across the zebra crossing on the Abbey Road album cover?",
+        "correct_answer": "John",
+        "incorrect_answers": [
+            "Paul",
+            "George",
+            "Ringo"
+        ]
+    },
+    {
+        "category": "Entertainment: Music",
+        "type": "multiple",
+        "difficulty": "easy",
+        "question": "Which famous rapper is featured in Jack &Uuml; (Skrillex and Diplo)&#039;s 2015 single called &quot;Febreze&quot;?",
+        "correct_answer": "2 Chainz",
+        "incorrect_answers": [
+            "Kendrick Lamar",
+            "Future",
+            "Fatman Scoop"
+        ]
+    }
+    ]
+}

@@ -1,0 +1,61 @@
+version: '3.7'
+
+services:
+  trivia:
+    build: .
+    image: ${DOCKER_REGISTRY:-open-trivia:${DOCKER_IMAGE_TAG:-latest}
+    ports:
+      - 8000:8000
+    secrets:
+      - allowed_hosts
+      - postgres_user
+      - postgres_password
+      - postgres_db
+      - postgres_host
+      - transifex_token
+      - transifex_organization
+      - transifex_project
+
+  postgres:
+    image: postgres:11.3
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER_FILE: /run/secrets/postgres_user
+      POSTGRES_PASSWORD_FILE: /run/secrets/postgres_password
+      POSTGRES_DB_FILE: /run/secrets/postgres_db
+    secrets:
+      - postgres_user
+      - postgres_password
+      - postgres_db
+
+volumes:
+  postgres_data: {}
+
+secrets:
+  allowed_hosts:
+    external: true
+    name: transifex-allowed-hosts-${TRANSIFEX_ALLOWED_HOSTS_VERSION:-v1}
+  postgres_user:
+    external: true
+    name: transifex-postgres-user-${TRANSIFEX_POSTGRES_USER_VERSION:-v1}
+  postgres_password:
+    external: true
+    name: transifex-postgres-password-${TRANSIFEX_POSTGRES_PASSWORD_VERSION:-v1}
+  postgres_db:
+    external: true
+    name: transifex-postgres-db-${TRANSIFEX_POSTGRES_PASSWORD_VERSION:-v1}
+  postgres_host:
+    external: true
+    name: transifex-postgres-host-${TRANSIFEX_POSTGRES_HOST_VERSION:-v1}
+  transifex_token:
+    external: true
+    name: transifex-token-${TRANSIFEX_TOKEN_VERSION:-v1}
+  transifex_organization:
+    external: true
+    name: transifex-organization-${TRANSIFEX_ORGANIZATION_VERSION:-v1}
+  transifex_project:
+    external: true
+    name: transifex-project-${TRANSIFEX_PROJECT_VERSION:-v1}

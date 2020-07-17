@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<br>
+{% if categories %}
+<form action="{% url 'trivia_questions'  %}" method="POST"> {% csrf_token %}
+    <select name="category">
+        <option value="0">Random</option>
+    {% for category in categories %}
+        <option value="{{category.id}}">{{category.name}}</option>
+    {% endfor%}
+    </select>
+
+    <button class="btn btn-outline-primary" type="submit">Load questions from Trivia</button>
+</form>
+
+{% else %}
+    <p>Better go to the <a href="{% url 'trivia_categories' %}">categories section</a> to download some categories first</p>
+{% endif %}
+
+{% if questions %}
+<table class="table">
+    <thead>
+      <tr>
+          <th scope="col">Category</th>
+          <th colspan="2" scope="col">Question</th>
+          <th scope="col">&nbsp;</th>
+    </tr>
+</thead>
+<tbody>
+    {% for question in questions %}
+    <tr>
+        <th>{{question.category}}</th>
+        <td colspan="2" scope="row">{{question.name}}</td>
+        {% if question.is_uploaded %}
+        <td><span class="badge badge-primary">Uploaded</span></td>
+        {% else %}
+        <td><a href="{% url 'trivia_translate' question.id %}" class="badge badge-info">Upload</a></td>
+        {% endif %}
+    </tr>
+        {% for answer in question.answer_set.all %}
+        <tr>
+            <td>&nbsp;</td>
+            {% if answer.is_correct_answer %}
+            <td><span class="badge badge-success">Correct</span></td>
+            {% else %}
+            <td>&nbsp;</td>
+            {% endif %}
+            <td>{{answer.name}}</td>
+        </tr>
+        {% endfor %}
+    {% endfor %}
+</tbody>
+</table>
+{% else %}
+    <div>
+        <p>There are no questions available</p>
+    </div>
+{% endif %}
+
+
+<br>
+{% endblock %}
