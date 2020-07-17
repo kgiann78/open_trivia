@@ -34,6 +34,8 @@ In order to achieve that, the easiest way was to tag each question that we have 
 
 This works only for this prototype application and for a limited amount of questions, until the size of the body is too big to be handled. A positive thing here is that since there are more than 30 categories, and the questions are uniformly distributed, then this effect takes some time to happen.
 
+What you will also not find here, is any test... No time so far but maybe I will update this repo instead to include some wherever possible.
+
 ### APIs
 
 The APIs and the endpoints that have been used are the following:
