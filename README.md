@@ -34,6 +34,24 @@ In order to achieve that, the easiest way was to tag each question that we have 
 
 This works only for this prototype application and for a limited amount of questions, until the size of the body is too big to be handled. A positive thing here is that since there are more than 30 categories, and the questions are uniformly distributed, then this effect takes some time to happen.
 
+### Django project
+
+As mentioned above this application is based on Django. The main application is transifex, while there have been added one application for the URL pages 
+(to hold the main templates and urls) and another one (trivia) which holds the business and data access logic.
+
+The requests to the different APIs are separated to two different files. Additionally the data access layer to the database is separated in another file.
+
+### What for sure is missing
+
+What is not there is tests. Although there could have been a design (i.e. use of the strategic design pattern) in order to create mock tests for the API requests,
+I mainly focused on fast learning the Django ecosystem and deliver a concluded web application. I felt that at the current point, a test driven development would have
+cost me in time, something that was already little.
+
+Also, what is also missing is the complete users' management. Any who can access the app will be able to request and download questions from trivia. On the other hand, 
+only with valid Transifex token/organization/project will be able to access the Transifex API and create resources or upload resource strings.
+
+Btw, as mentioning below, I didn't take advantage of some special calls to the trivia API like retrieving a session token or setting special encoding for the language.
+
 ### APIs
 
 The APIs and the endpoints that have been used are the following:
