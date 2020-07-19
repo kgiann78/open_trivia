@@ -183,7 +183,7 @@ On macOS and Linux:
     python3 -m venv env
     source env/bin/activate
 
-On Windows:
+On Windows (I haven't personally tested this, I just got them from the official docs):
 
     py -m pip install --user virtualenv
     py -m venv env
@@ -206,6 +206,12 @@ Other than the default dependencies that are added from running the django packa
 * `sec` a very useful package that reads environmental variables or docker secrets and converts them into setting variables.
 * `psycopg2` as the PostgreSQL database adapter for the Python 
 * `requests` as a simple HTTP library for Python for the http calls to Trivia and Transfix
+
+**Finally**, run the application with 
+
+    python transifex/manage.py runserver
+
+to run it on the default port 8000.
 
 
 #### Migrate the database
